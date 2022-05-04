@@ -20,12 +20,14 @@ public class Interactable_Furniture : MonoBehaviour
 
         if (startingGrabType != GrabTypes.None)
         {
+            SetOffUI();
             // Call this to continue receiving HandHoverUpdate messages,
             // and prevent the hand from hovering over anything else
             hand.HoverLock(interactable);
 
             // Attach this object to the hand
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
+            
         }
         else if (isGrabEnding)
         {
@@ -34,7 +36,19 @@ public class Interactable_Furniture : MonoBehaviour
 
             // Call this to undo HoverLock
             hand.HoverUnlock(interactable);
+            SetActiveUi();
 
         }
     }
+
+    void SetOffUI()
+    {
+        transform.parent.Find("Ui_elements").gameObject.SetActive(false);
+    }
+
+    void SetActiveUi()
+    {
+        transform.parent.Find("Ui_elements").gameObject.SetActive(true);
+    }
+
 }

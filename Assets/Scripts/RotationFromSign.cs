@@ -8,7 +8,7 @@ public class RotationFromSign : MonoBehaviour
     Quaternion rot;
     void Start()
     {
-        rotationSign = transform.parent.Find("rotation").gameObject;
+        rotationSign = transform.root.Find("rotation").gameObject;
     }
 
     void Update()

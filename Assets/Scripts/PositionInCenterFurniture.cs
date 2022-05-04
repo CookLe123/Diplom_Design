@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PositionInCenterFurniture : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject furniture;
     void Start()
     {
-        transform.position = transform.parent.Find("Cube").transform.position;
+        furniture = transform.parent.Find("Cube").gameObject;
+        transform.position = furniture.transform.position;
+    }
+    void Update()
+    {
+        transform.position = transform.parent.Find("Cube").position;
     }
 }

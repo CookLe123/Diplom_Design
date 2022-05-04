@@ -252,10 +252,12 @@ namespace Valve.VR.InteractionSystem
                 grabbedWithType = startingGrabType;
                 // Trigger was just pressed
                 lastHandProjected = ComputeToTransformProjected( hand.hoverSphereTransform );
-
-				if ( hoverLock )
+                transform.parent.Find("Ui_elements/All_Ui").gameObject.SetActive(false);
+                transform.parent.Find("Ui_elements/All_Ui").parent = transform.root;
+                transform.parent.Find("Ui_elements").position = transform.parent.Find("Cube").position;
+                if ( hoverLock )
 				{
-					hand.HoverLock(interactable);
+                    hand.HoverLock(interactable);
 					handHoverLocked = hand;
 				}
 
@@ -268,8 +270,10 @@ namespace Valve.VR.InteractionSystem
 			}
             else if (grabbedWithType != GrabTypes.None && isGrabEnding)
 			{
-				// Trigger was just released
-				if ( hoverLock )
+                transform.parent.Find("All_Ui").gameObject.SetActive(true);
+                transform.parent.Find("All_Ui").parent = transform.root.Find("Ui_elements");
+                // Trigger was just released
+                if ( hoverLock )
 				{
 					hand.HoverUnlock(interactable);
 					handHoverLocked = null;
@@ -415,9 +419,9 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( rotateGameObject )
 			{
-				transform.localRotation = start * Quaternion.AngleAxis( outAngle, localPlaneNormal );
+                transform.localRotation = start * Quaternion.AngleAxis(outAngle, localPlaneNormal);
             }
-		}
+        }
 
 
 		//-------------------------------------------------

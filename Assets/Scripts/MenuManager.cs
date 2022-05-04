@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
     {
         if (!managerStart)
             return;
-        Instantiate(Menu, MainCamera.transform.position+Vector3.forward, MainCamera.transform.rotation);
+        Instantiate(Menu, MainCamera.transform.position+Vector3.forward+Vector3.down, MainCamera.transform.rotation);
 
         managerStart = false;
     }
