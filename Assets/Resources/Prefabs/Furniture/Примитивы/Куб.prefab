@@ -593,7 +593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5417704984537687100}
-  - component: {fileID: 8580818439316004512}
+  - component: {fileID: 2273920367567933055}
   m_Layer: 0
   m_Name: Ui_elements
   m_TagString: Untagged
@@ -616,7 +616,7 @@ Transform:
   m_Father: {fileID: 5976079321202981253}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8580818439316004512
+--- !u!114 &2273920367567933055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3052883395990622968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2774f8fe265d6c4449ac3458fdeaf45a, type: 3}
+  m_Script: {fileID: 11500000, guid: e896d52c20e16a240bb5ae7c52b09027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4463233065965402830
@@ -878,7 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5976079321202981253}
   m_Layer: 0
-  m_Name: FurnitureStorage1
+  m_Name: "\u041A\u0443\u0431"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 8349811415644558624}
   - component: {fileID: 6960218729890683569}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Furniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

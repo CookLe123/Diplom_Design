@@ -361,7 +361,7 @@ MonoBehaviour:
   laserPointer: {fileID: 1182061148}
   colorPrevious: {r: 0, g: 0, b: 0, a: 0}
   colorOnCovered: {r: 0, g: 0, b: 0, a: 0}
-  FurnitureObject: {fileID: 5047633208381046813, guid: 1cb2c3512fda7cc459891ae075fdc0f5, type: 3}
+  menuObject: {fileID: 4414190080474071536, guid: ed054497b187bfd48a90d02122456605, type: 3}
 --- !u!1 &1113590546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1218137696374503230, guid: 6439454ab59564d4cb13bf5d14034c23, type: 3}

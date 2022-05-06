@@ -254,7 +254,7 @@ namespace Valve.VR.InteractionSystem
                 lastHandProjected = ComputeToTransformProjected( hand.hoverSphereTransform );
                 transform.parent.Find("Ui_elements/All_Ui").gameObject.SetActive(false);
                 transform.parent.Find("Ui_elements/All_Ui").parent = transform.root;
-                transform.parent.Find("Ui_elements").position = transform.parent.Find("Cube").position;
+                transform.parent.Find("Ui_elements").position = transform.parent.Find("Furniture").position;
                 if ( hoverLock )
 				{
                     hand.HoverLock(interactable);

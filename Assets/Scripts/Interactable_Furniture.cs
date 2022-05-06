@@ -44,11 +44,13 @@ public class Interactable_Furniture : MonoBehaviour
     void SetOffUI()
     {
         transform.parent.Find("Ui_elements").gameObject.SetActive(false);
+        transform.parent.Find("rotation").gameObject.SetActive(false);
     }
 
     void SetActiveUi()
     {
         transform.parent.Find("Ui_elements").gameObject.SetActive(true);
+        transform.parent.Find("rotation").gameObject.SetActive(true);
     }
 
 }
