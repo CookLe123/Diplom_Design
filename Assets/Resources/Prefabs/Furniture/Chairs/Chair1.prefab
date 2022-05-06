@@ -800,7 +800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8427565426678438811}
   m_Layer: 0
-  m_Name: "\u0421\u0442\u0443\u043B"
+  m_Name: Chair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

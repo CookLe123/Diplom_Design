@@ -6,36 +6,35 @@ using UnityEngine.UI;
 public class ScaleFromScrollbar : MonoBehaviour
 {
     Scrollbar currentScale;
+
     GameObject rootfurniture;
+
     Vector3 furnitureScale,totalScale;
-    bool front;
-    bool back;
-    bool right;
-    bool left;
-    // Start is called before the first frame update
+
+    bool zaxis;
+
+    public Vector3 zscale, xscale;
+
     void Start()
     {
         currentScale = transform.GetComponent<Scrollbar>();
         rootfurniture = transform.root.Find("Furniture").gameObject;
         furnitureScale = rootfurniture.transform.localScale;
         currentScale.onValueChanged.AddListener(ChangedValue);
+        zscale = Vector3.Scale(furnitureScale, rootfurniture.transform.right);
+        xscale = Vector3.Scale(furnitureScale, rootfurniture.transform.forward);
     }
 
     void ChangedValue(float value)
     {
-        front = transform.root.Find("Ui_elements/All_Ui").GetComponent<PositionOverFurniture>().front;
-        right = transform.root.Find("Ui_elements/All_Ui").GetComponent<PositionOverFurniture>().right;
-        left = transform.root.Find("Ui_elements/All_Ui").GetComponent<PositionOverFurniture>().left;
-        back = transform.root.Find("Ui_elements/All_Ui").GetComponent<PositionOverFurniture>().back;
-        if (front || back)
+        GameObject ui = transform.root.Find("Ui_elements/All_Ui").gameObject;
+        zaxis = ui.GetComponent<PositionOverFurniture>().zaxis;
+        if (zaxis)
         {
-            totalScale = Vector3.right;
+            zscale = furnitureScale.x * (1 + value) * Vector3.right;
         }
-        else if (right || left)
-        {
-            totalScale = Vector3.forward;
-        }
-        rootfurniture.transform.localScale = furnitureScale + totalScale * value;
+        else xscale = furnitureScale.z * (1 + value) * Vector3.forward;
+        rootfurniture.transform.localScale = new Vector3(zscale.x, furnitureScale.y,  xscale.z);
     }
     
 }

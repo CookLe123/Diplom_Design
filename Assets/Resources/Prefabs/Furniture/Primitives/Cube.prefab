@@ -878,7 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5976079321202981253}
   m_Layer: 0
-  m_Name: "\u041A\u0443\u0431"
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

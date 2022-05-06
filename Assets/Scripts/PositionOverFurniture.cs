@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PositionOverFurniture : MonoBehaviour
 {
     GameObject furniture;
+
     Vector3 pos;
+
     Vector3 standartPos;
+
     Bounds bound;
+
     GameObject maincamera;
+
     Vector3 poscamera;
-    public bool front = false;
-    public bool back = false;
-    public bool right = false;
-    public bool left = false;
+
+    Vector3 furnitureScale;
+
+    public bool zaxis = false;
+
     void Start()
     {
         furniture = transform.root.Find("Furniture").gameObject;
         bound = furniture.GetComponent<MeshFilter>().sharedMesh.bounds;
         standartPos = furniture.transform.position;
+        furnitureScale = furniture.transform.localScale;
         maincamera = GameObject.Find("FallbackObjects");
     }
 
@@ -34,43 +42,46 @@ public class PositionOverFurniture : MonoBehaviour
         if (transform.name == "All_Ui")
         {
             poscamera = new Vector3(maincamera.transform.position.x,transform.position.y, maincamera.transform.position.z);
+            float valuex = transform.Find("UI_ForCube/Scrollbar").GetComponent<ScaleFromScrollbar>().zscale.x;
+            float valuez = transform.Find("UI_ForCube/Scrollbar").GetComponent<ScaleFromScrollbar>().xscale.z;
             if (Vector3.Angle(poscamera, -furniture.transform.forward) <= 45)
             {
+                zaxis = true;
+                valuex = valuex/furnitureScale.x-1;
+                transform.Find("UI_ForCube/Scrollbar").GetComponent<Scrollbar>().value = valuex;
                 transform.parent.rotation = furniture.transform.rotation;
                 transform.rotation = furniture.transform.rotation;
-                back = false;
-                right = false;
-                left = false;
-                front = true;
+                pos = new Vector3(standartPos.x, standartPos.y - bound.size.y * furniture.transform.lossyScale.y / 1.5f, standartPos.z - bound.size.z * furniture.transform.lossyScale.z / 2 - 0.1f);
             }
             else if (Vector3.Angle(poscamera, furniture.transform.forward) <= 45)
             {
-                transform.parent.rotation = furniture.transform.rotation * Quaternion.Euler(0f,180f,0f);
+                zaxis = true;
+                valuex = valuex / furnitureScale.x - 1;
+                transform.Find("UI_ForCube/Scrollbar").GetComponent<Scrollbar>().value = valuex;
+                transform.parent.rotation = furniture.transform.rotation;
                 transform.rotation = furniture.transform.rotation * Quaternion.Euler(0f, 180f, 0f);
-                back = true;
-                right = false;
-                left = false;
-                front = false;
+                pos = new Vector3(standartPos.x, standartPos.y - bound.size.y * furniture.transform.lossyScale.y / 1.5f, standartPos.z + bound.size.z * furniture.transform.lossyScale.z / 2 + 0.1f);
             }
             else if (Vector3.Angle(poscamera, furniture.transform.right) <= 45)
             {
-                transform.parent.rotation = furniture.transform.rotation * Quaternion.Euler(0f, -90f, 0f);
+                zaxis = false;
+                valuez = valuez / furnitureScale.z - 1;
+                transform.Find("UI_ForCube/Scrollbar").GetComponent<Scrollbar>().value = valuez;
+                transform.parent.rotation = furniture.transform.rotation;
                 transform.rotation = furniture.transform.rotation * Quaternion.Euler(0f, -90f, 0f);
-                back = false;
-                right = true;
-                left = false;
-                front = false;
+                pos = new Vector3(standartPos.x + bound.size.x * furniture.transform.lossyScale.x / 2 + 0.1f, standartPos.y - bound.size.y * furniture.transform.lossyScale.y / 1.5f, standartPos.z );
+
             }
             else if (Vector3.Angle(poscamera, -furniture.transform.right) <= 45)
             {
-                transform.parent.rotation = furniture.transform.rotation * Quaternion.Euler(0f, 90f, 0f);
+                zaxis = false;
+                valuez = valuez / furnitureScale.z - 1;
+                transform.Find("UI_ForCube/Scrollbar").GetComponent<Scrollbar>().value = valuez;
+                transform.parent.rotation = furniture.transform.rotation;
                 transform.rotation = furniture.transform.rotation * Quaternion.Euler(0f, 90f, 0f);
-                back = false;
-                right = false;
-                left = true;
-                front = false;
+                pos = new Vector3(standartPos.x - bound.size.x * furniture.transform.lossyScale.x / 2 - 0.1f, standartPos.y - bound.size.y * furniture.transform.lossyScale.y / 1.5f, standartPos.z);
             }
-            pos = new Vector3(standartPos.x, standartPos.y - bound.size.y * furniture.transform.lossyScale.y / 1.5f, standartPos.z - bound.size.z * furniture.transform.lossyScale.z / 2 - 0.1f);
+           
         }
         else
         pos = new Vector3(furniture.transform.position.x, furniture.transform.position.y + furniture.transform.lossyScale.y / 2, furniture.transform.position.z);

@@ -5,7 +5,9 @@ using UnityEngine;
 public class PositionInCenterFurniture : MonoBehaviour
 {
     GameObject furniture;
+
     Bounds bound;
+
     void Start()
     {
         furniture = transform.parent.Find("Furniture").gameObject;
