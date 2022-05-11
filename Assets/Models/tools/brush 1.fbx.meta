@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 2fa3cb99bee5b034cb7986590a4f4af1
+guid: 9e9fa5414497842438e6107a52146221
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OldChair_BAKED.001
-    second: {fileID: 2100000, guid: e7929bf04a5935948b707d9ef70d9c94, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

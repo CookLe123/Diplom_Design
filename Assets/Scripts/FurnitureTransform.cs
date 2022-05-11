@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class FurnitureTransform : MonoBehaviour
 {
     GameObject rotationsign;
+
     private void Start()
     {
         rotationsign = transform.parent.Find("rotation").gameObject;
     }
+
     public void ResetPosition()
     {
         transform.position = Vector3.zero;

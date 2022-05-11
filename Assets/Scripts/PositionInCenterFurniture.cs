@@ -11,8 +11,10 @@ public class PositionInCenterFurniture : MonoBehaviour
     void Start()
     {
         furniture = transform.parent.Find("Furniture").gameObject;
+
         bound = furniture.GetComponent<MeshFilter>().sharedMesh.bounds;
     }
+
     void Update()
     {
         transform.position = furniture.transform.position;

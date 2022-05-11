@@ -6,14 +6,20 @@ using UnityEngine.UI;
 public class InitFurniture : MonoBehaviour
 {
     private GameObject furniture;
+
     public void Init(GameObject obj,Button button)
     {
         furniture = obj;
+
         button.onClick.AddListener(CreateFurniture);
     }
+
     private void CreateFurniture()
     {
         Instantiate(furniture);
+
+        var skript = transform.parent.GetComponent<AddingFurnitureToList>();
+        skript.DestroyObject();
     }
 
 }

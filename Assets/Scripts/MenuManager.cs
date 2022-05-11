@@ -5,13 +5,10 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     public GameObject Menu;
-    bool managerStart = false;
-    public Camera MainCamera;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    bool managerStart = false;
+
+    public Camera MainCamera;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +22,7 @@ public class MenuManager : MonoBehaviour
         if (!managerStart)
             return;
         Instantiate(Menu, MainCamera.transform.position+Vector3.forward+Vector3.down, MainCamera.transform.rotation);
-
+        
         managerStart = false;
     }
 }

@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-public class Interactable_Furniture : MonoBehaviour
+public class InteractableBrush : MonoBehaviour
 {
     private Interactable interactable;
 
-    GameObject uiObject;
+    public GameObject materialMenu;
 
-    GameObject rotationObject;
+    Bounds bound;
 
     private Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers) & (~Hand.AttachmentFlags.VelocityMovement);
 
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
-        uiObject = transform.parent.Find("Ui_elements").gameObject;
-        rotationObject = transform.parent.Find("Ui_elements").gameObject;
+        bound = transform.GetComponent<MeshFilter>().sharedMesh.bounds;
     }
 
     private void HandHoverUpdate(Hand hand)
@@ -28,7 +27,6 @@ public class Interactable_Furniture : MonoBehaviour
 
         if (startingGrabType != GrabTypes.None)
         {
-            SetOffUI();
 
             // Call this to continue receiving HandHoverUpdate messages,
             // and prevent the hand from hovering over anything else
@@ -36,7 +34,7 @@ public class Interactable_Furniture : MonoBehaviour
 
             // Attach this object to the hand
             hand.AttachObject(gameObject, startingGrabType, attachmentFlags);
-            
+
         }
         else if (isGrabEnding)
         {
@@ -46,24 +44,16 @@ public class Interactable_Furniture : MonoBehaviour
             // Call this to undo HoverLock
             hand.HoverUnlock(interactable);
 
-            SetActiveUi();
 
         }
     }
 
-    private void SetOffUI()
+    private void Update()
     {
-        uiObject.SetActive(false);
-
-        rotationObject.SetActive(false);
+        if (Input.GetKeyDown("p") && transform.parent != null)
+        {
+            Vector3 size = Vector3.Scale(materialMenu.GetComponent<RectTransform>().sizeDelta*materialMenu.transform.localScale/2, Vector3.up);
+            Instantiate(materialMenu, transform.position+size, GameObject.Find("FallbackObjects").transform.rotation);
+        }
     }
-
-    private void SetActiveUi()
-    {
-
-        uiObject.SetActive(true);
-
-        rotationObject.SetActive(true);
-    }
-
 }
