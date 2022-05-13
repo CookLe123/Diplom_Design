@@ -50,10 +50,15 @@ public class InteractableBrush : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("p") && transform.parent != null)
+        if (transform.parent == null)
+        {
+            transform.position = GameObject.Find("FallbackObjects").transform.position-(Vector3.up * 0.4f - Vector3.left*0.2f) ;
+        }
+        else if (Input.GetKeyDown("p"))
         {
             Vector3 size = Vector3.Scale(materialMenu.GetComponent<RectTransform>().sizeDelta*materialMenu.transform.localScale/2, Vector3.up);
             Instantiate(materialMenu, transform.position+size, GameObject.Find("FallbackObjects").transform.rotation);
         }
+     
     }
 }

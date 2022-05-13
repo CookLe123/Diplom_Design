@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class MenuManager : MonoBehaviour
         if (!managerStart)
             return;
         Instantiate(Menu, MainCamera.transform.position+Vector3.forward+Vector3.down, MainCamera.transform.rotation);
-        
         managerStart = false;
     }
 }
