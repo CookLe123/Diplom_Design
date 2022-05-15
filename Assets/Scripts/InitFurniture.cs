@@ -10,14 +10,12 @@ public class InitFurniture : MonoBehaviour
     public void Init(GameObject obj,Button button)
     {
         furniture = obj;
-
         button.onClick.AddListener(CreateFurniture);
     }
 
     private void CreateFurniture()
     {
         Instantiate(furniture);
-
         var skript = transform.parent.GetComponent<AddingFurnitureToList>();
         skript.DestroyObject();
     }

@@ -54,15 +54,12 @@ public class Interactable_Furniture : MonoBehaviour
     private void SetOffUI()
     {
         uiObject.SetActive(false);
-
         rotationObject.SetActive(false);
     }
 
     private void SetActiveUi()
     {
-
         uiObject.SetActive(true);
-
         rotationObject.SetActive(true);
     }
 

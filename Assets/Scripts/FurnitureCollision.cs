@@ -28,7 +28,6 @@ public class FurnitureCollision : MonoBehaviour
         {
             if(hitColliders[i].tag == "Walls" || hitColliders[i].tag == "Floor")
             {
-                Debug.Log(bound.size);
                 Vector3 positionDifference = hitColliders[i].ClosestPoint(colliders.bounds.center) - colliders.bounds.center;
                 Vector3 normal = positionDifference.normalized;
                 Vector3 scaleObject = Vector3.Scale(Vector3.Scale(colliders.bounds.size, transform.localScale), normal)/2;

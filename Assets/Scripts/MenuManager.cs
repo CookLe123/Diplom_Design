@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && !managerStart)
+        if (Input.GetKeyDown(KeyCode.Space) && !managerStart)
             managerStart = true;
     }
 
