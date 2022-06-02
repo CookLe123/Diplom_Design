@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7495567364419739848}
   - component: {fileID: 7495567364419739849}
   - component: {fileID: 7495567364419739854}
+  - component: {fileID: 4009860762615914874}
   m_Layer: 5
   m_Name: UI_Plate
   m_TagString: Untagged
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7495567364419739854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +101,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4009860762615914874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495567364419739855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec73157bef8c6a841acb3aee61ac737a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openMenu: {fileID: 3207813558544489009, guid: 7d6d5ea4c17e2c747bc6115e3458a757, type: 3}
+  offset: 0.5
 --- !u!1 &7495567364784990438
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u043C\u0435\u043D\u044E \u043C\u0435\u0431\u0435\u043B\u0438"
+  m_text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u043C\u0435\u043D\u044E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

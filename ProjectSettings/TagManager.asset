@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - RotationSign
   - brush
+  - Furniture
   layers:
   - Default
   - TransparentFX

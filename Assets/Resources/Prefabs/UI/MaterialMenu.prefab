@@ -509,6 +509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07ef19a0063dd94e8b0877e321fcb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Materials/
+  materialObject: {fileID: 6372130417422057421}
+  serialNumber: 3
+  offsetHeight: 5
 --- !u!1 &6372130419146747553
 GameObject:
   m_ObjectHideFlags: 0
